@@ -1,9 +1,9 @@
-## Git & Gitbub
+## Git & GitHub
 
 #### Git
 
-- 깃은 Distributed Version Controll System으로 파일들을 트래킹하는 방식이다.
-- 깃은 모든 파일들의 변경사항들을 추적하기 때문에 사용자가 어떤 파일들을 트래킹 하고 싶을 때 사용할 수 있다.
+- 깃은 Distributed Version Controll System으로 파일들을 추적하는 방식이다.
+- 깃은 모든 파일들의 변경사항들을 추적하기 때문에 사용자가 어떤 파일들을 추적하고 싶을 때 사용할 수 있다.
 - 언제, 누가, 어떤 것이 바꼈는지 등을 상세하게 추적할 수 있다.
 - 깃은 파일들을 단순히 텍스트로 읽지 않고, 바이너리 코드인 0과 1로 읽는다.
 - 그렇기 때문에 텍스트 파일뿐만 아니라 이미지, 엑셀, 음악 파일등 대부분의 파일들을 읽을 수 있다.
@@ -17,54 +17,54 @@
 #### Repository
 
 - 리포지토리는 기본적으로 사용자의 파일들이 위치한 곳이고 깃이 주시하고 있는 폴더이다.
-- 그래서 그 파일 안에 있는 모든 것은 git에 의해 주시된다.
+- 그래서 해당 폴더 안에 있는 모든 파일들은 git에 의해 주시된다.
 - 리포지토리는 기본적으로 .git이라는 폴더를 가지게 되고, 이 폴더에는 깃에 관련된 명령어나 파일, 히스토리들이 있다.
-- 이 파일이 있기 때문에 깃이 해당 리포지토리를 추적할 수 있게 되는 것이다.
+- 이 .git폴더가 작업 중인 폴더 내부에 있기 때문에 깃 명령어를 사용할 수 있고, 깃이 해당 폴더의 변경사항들을 추적할 수 있는 것이다.
 
 #### Commit
 
-- 커밋은 기본적으로 작업에 대한 기록이다. 
-- 작업중인 깃 폴더에 어떤 변경사항이 있을 때 그것을 기록하고 싶을 때 사용한다.
+- 커밋은 기본적으로 작업에 대한 기록이다.
+- 작업중인 폴더에 어떤 변경사항이 있을 때 그것을 히스토리로 기록하고 싶을 때 사용한다.
 
 #### Area
 
-- 깃 area는 기본적으로 working directory, staging area, git directory(local repository) 3단계로 나눠져 있다.
+- 깃 area는 기본적으로 working directory(unstage area), staging area, git directory(local repository) 3단계로 나눠져 있다.
 - 첫 번째 working directory는 현재 우리가 작업하고 있는 폴더에서 어떤 변경사항이 생기면 알아차리는 곳이다.
 - working directory에서 git add를 하게 되면 staging area로 가게 된다.
 - 두 번째 staging area는 변경사항이 있는 파일들을 선택해 커밋할 수 있도록 지정하는 곳이다.
-- staging area에서 git commit을 하게 되면 git directory(repository)로 가게 된다.
-- 세 번째 git directory(local repository)는 파일들이 커밋되어진 곳으로, 파일들의 수정사항에 대한 스냅샷을 가지고 있는 곳이다.
-- git directory(local repository)에는 언제, 누가, 어떤 것을 수정했는지에 대한 히스토리를 가지고 있는 곳이다.
-- git direcotry에서 git push를 하게 되면 remote repository로 올라가게 된다.
-- git pull을 하게 되면 remote repository에서 local repository로 받아오게 된다.
+- staging area에서 git commit을 하게 되면 git directory로 가게 된다.
+- 세 번째 git directory는 파일들이 커밋된 곳으로, 파일들의 변경사항에 대한 스냅샷을 가지고 있는 곳이다.
+- git directory에는 언제, 누가, 어떤 것을 수정했는지에 대한 히스토리를 가지고 있는 곳이다.
+- git direcotry에서 git push를 하게 되면 remote repository인 원격 저장소로 올라가게 된다.
+- git pull을 하게 되면 remote repository인 원격 저장소에서 local repository인 로컬 저장소로 받아오게 된다.
 
 #### Branch
 
-- 브랜치는 현재 master또는 main의 마지막 커밋으로부터 다른 타임라인을 가지게 될 부분이다.
-- 브랜치를 생성하게 되면 해당 브랜치는 마스터 또는 메인 브랜치의 마지막 커밋까지의 내용을 가지고 있게 된다.
+- 브랜치는 현재 main브랜치의 마지막 커밋으로부터 다른 타임라인을 가지게 될 부분이다.
+- 브랜치를 생성하게 되면 해당 브랜치는 메인 브랜치의 마지막 커밋까지의 내용을 가지고 있게 된다.
 - 그래서 그 후 새로운 변경사항이 생기게 되면 그 변경사항을 메인 브랜치에 merge를 통해 합칠 수 있게 된다.
 - 또는 메인 브랜치에 변경사항이 생기면 Update를 통해 메인 브랜치의 변경사항을 가져와서 업데이트할 수 있다.
 - 그리고 기능 개발이 끝났다면 나중에 해당 브랜치를 메인 브랜치에 merge하고, 삭제할 수 있다.
 
 #### Conflit
 
-- Conflit는 각각의 브랜치에서 작업한 내용이 동일한 라인(줄)에서 발생했을 때 생기는 문제이다.
-- 예를들어 메인 브랜치와 또 다른 브랜치에서 같은 라인(줄)에서 작업을 한 후, merge하려고 할 때 충돌이 생기게 된다.
+- Conflit는 각각의 브랜치에서 작업한 코드가 동일한 라인에서 변경사항이 발생했을 때 생기는 충돌 문제이다.
+- 예를들어 메인 브랜치와 또 다른 브랜치에서 같은 라인에서 코드를 수정한 후, merge하려고 할 때 충돌이 생기게 된다.
 - 충돌이 생기면 해당 두 브랜치를 비교해 어떤 브랜치의 변경사항을 적용할 것인지 선택해서 merge할 수 있다.
 
 #### Fork
 
-- fork는 git의 기능이 아닌 github의 기능으로, 해당 리포지토리의 전체를 자신의 계정으로 복사해서 가져온다.
+- Fork는 git의 기능이 아닌 github의 기능으로, 해당 리포지토리의 전체를 자신의 계정에 복사해서 가져온다.
 - 포크를 활용하는 방법은 보통 팀으로 작업할 때 메인 프로젝트 리포지토리가 있다면, 그 메인 프로젝트를 자신의 리포지토리로 포크해와서 작업한 후, 작업이 끝나면 메인 프로젝트 리포지토리에 작업한 변경사항들을 pull request(pull해서 가져가라고 요청)하게 된다.
 - 그렇게 되면 메인 프로젝트 리포지토리에는 다른 사용자가 Open a pull request한 것을 확인할 수 있고, 해당 코드를 현재 프로젝트에 병합하거나 취소할지 결정할 수 있다.
 - 작업이 끝나면 pull request를 하고 난 후에는 포크한 리포지토리를 삭제할 수 있다.
-- 정리하자면 해당 메인 리포지토리를 포크해서 코드 복사본을 가져온 후, 작업을 하고 그 변경사항을 pull request한다. 
+- 정리하자면 해당 메인 리포지토리를 포크해서 리포지토리 복사본을 가져온 후, 작업을 하고 그 변경사항을 pull request요청한다. 
 
 #### Upstream Branch
 
-- upstream브랜치는 포크해온 메인 리포지토리의 마스터 브랜치와 연결되어 있는 브랜치이다.
-- 우리가 메인 리포지토리에서 포크를 해와서 작업을 할 때, 만약 메인 리포지토리의 코드가 업데이트되어서 최신 코드이고, 내가 포크해와서 작업한 코드는 오래된 경우일 경우 upstream브랜치를 통해 메인 리포지토리의 최신 코드를 현재 리포지토리로 가져올 수 있다.
-- 해당 메인 리포지토리의 마스터 브랜치를 fork하게 되면 기본적으로 그 메인 리포지토리의 마스터 브랜치와 연결되어있는 upstream 브랜치가 만들어지고, 이 브랜치를 통해 메인 리포지토리의 변경사항을 fetch해서 가져올 수 있다.
+- Upstream Branch는 포크해온 메인 리포지토리의 메인 브랜치와 연결되어 있는 브랜치이다.
+- 우리가 메인 리포지토리에서 포크를 해와서 작업을 할 때, 만약 메인 리포지토리의 코드가 업데이트되어서, 포크해와서 작업중인 코드가 오래된 경우, upstream 브랜치를 통해 메인 리포지토리의 최신 코드를 현재 리포지토리로 가져올 수 있다.
+- 메인 리포지토리의 메인 브랜치를 fork하게 되면 기본적으로 그 메인 리포지토리의 메인 브랜치와 연결되어있는 upstream 브랜치가 만들어지고, 이 브랜치를 통해 메인 리포지토리의 변경사항을 fetch해서 가져올 수 있다.
 - Github Desktop에서 fetch origin을 클릭해서 upstream 브랜치에 최신 코드를 fetch해서 가져온 후, upstream 브랜치의 코드를 현재 브랜치에 병합한다.
 
 #### Issue
@@ -84,3 +84,123 @@
 - 예를들면 새롭게 추가될 특정 기능이나 새로운 버전 업등이 마일스톤이 될 수 있다.
 - 마감일을 설정 후, 해당 기간 동안 수행할 이슈들을 등록해 놓으면 해결된 이슈와 미해결된된 이슈를 구분해서 볼 수 있고, 해결된 이슈들을 카운트하여 프로젝트의 진행사항을 퍼센트로 보여주는 기능이다.
 - 마일스톤 안에 있는 모든 이슈들이 해결되면 마일스톤이 달성되게 된다.
+
+#### Checkout
+
+- git checkout 커밋ID: checkout을 사용하면 과거의 커밋으로 돌아갈 수 있다. 
+- 과거의 커밋으로 돌아가게 되면 HEAD가 과거의 커밋 위치로 바뀌게 된다.
+- HEAD는 현재 작업중인 브랜치를 가르킨다.
+- git checkout main: 과거로 돌아간 상태에서 checkout을 통해 다시 현재 main 브랜치로 돌아올 수 있다.
+
+#### Hard Reset
+
+- Hard Reset은 커밋 기록과 작업한 파일의 변경 사항 모두를 삭제하면서 과거의 커밋으로 돌아간다.
+- git reset HEAD^ --hard: 이전 커밋으로 돌아가는 동시에 커밋과 파일의 변경사항 모두 삭제한다. (--hard는 삭제하는 명령어이다.)
+- HEAD뒤에 ^을 붙이면 이전 커밋으로 돌아가고, ^^을 붙이면 더 이전 커밋으로 돌아간다.
+
+#### Mixed Reset
+
+- Mixed Reset은 커밋 기록만 삭제하고, 작업한 파일의 변경 사항은 그대로 유지하면서, 과거의 커밋으로 돌아간다.
+- git reset HEAD^: 이전 커밋으로 돌아가지만 커밋을 삭제하지 않고, 파일을 untracked(깃에 의해 추적되지 않은 상태)로 이동시킨다.
+- untracked는 git add를 하기 전의 상태인 working directory를 의미한다.
+- 즉, 커밋은 되돌아가지만 hard reset가 다르게 파일을 삭제하지는 않는다. 
+- hard reset은 이전 커밋으로 돌아가고 파일 또한 삭제해버린다.
+- 그래서 아직 완료되지 않은 파일을 커밋한 경우, Mixed Reset을 사용해서 파일의 변경 사항은 그대로 유지한 채, 커밋만 되돌려서 파일을 수정한 후 다시 커밋할 수 있다.
+ 
+#### Soft Reset
+
+- Soft Reset은 Mixed Reset과는 다르게 이전 커밋으로 돌아가지만, 변경한 파일을 unstage area(working directory)가 아닌 staging area에 추가시킨다. 
+- git reset HEAD^ —soft: 이전 커밋으로 돌아가지만 커밋을 삭제하지 않고, 파일을 staging area(깃에 의해 추적되고 있는 상태)로 이동시킨다.
+- staging area로 이동시키기 때문에 현재 작업 중인 파일과 구분할 수 있다.
+- 대부분의 경우에는 Hard Reset으로 되돌려서 아예 처음부터 다시 시작하거나 Mixed Reset으로 되돌린 후 작업하는 경우가 많다. #### Branch 생성
+- git checkout -b 브랜치명 또는 git switch -c 브랜치명을 실행해 Reset을 통해 이전 커밋으로 되돌아간 후 브랜치를 생성할 수 있다.
+- git reset HEAD^ —soft: 이전 커밋으로 돌아가지만 커밋을 삭제하지 않고, 파일을 staging area(깃에 의해 추적되고 있는 상태)로 이동시킨다.
+- staging area로 이동시키기 때문에 현재 작업 중인 파일과 구분할 수 있다.
+- 대부분의 경우에는 Hard Reset으로 되돌려서 아예 처음부터 다시 시작하거나 Mixed Reset으로 되돌린 후 작업하는 경우가 많다. 
+- git checkout 브랜치명: 현재 브랜치에서 해당 브랜치로 이동할 수 있다.
+- git push origin 브랜치명: main브랜치 외에도 새로 생성한 브랜치 또한 푸시할 수 있다.
+- 푸시하게 되면 기본 main브랜치 외에 여러 브랜치들로 나누어서 생성하게 된다.
+
+#### Branch 삭제
+
+- 브랜치 생성 후, 브랜치에서 개발이 다 끝나고 메인 브랜치에 병합 후에 더 이상 브랜치를 사용하지 않을 때는 삭제해주는 것이 좋다.
+- 브랜치는 자주 만들어서 작업하는 것이 좋지만, 메인 브랜치를 제외한 서브 브랜치들은 저장소에 남아 있지 않는 것이 좋다.
+- 그래서 작업이 다 끝나고 메인 브랜치에 병합을 완료했다면, git branch -d 브랜치명을 통해 로컬저장소에서 브랜치 삭제해준다.
+- 그리고 로컬 저장소 뿐만 아니라 원격 저장소에도 git push origin :브랜치명을 통해 삭제해준다.
+- git push origin :브랜치명대신 git push origin -d 브랜치명을 통해 삭제할 수도 있다.
+
+#### Commit 수정
+
+- Commit Amend는 커밋 수정으로, 가장 마지막 커밋을 수정할 때 사용할 수 있다.
+- 만약 마지막 커밋에 빠뜨리거나 추가하지 않은 변경사항들이 있다면 git add를 해준 후, git commit —amend -m “커밋 메시지”를 통해 마지막 커밋의 커밋 메시지를 수정하고, 현재 변경사항들을 마지막 커밋에 추가한다.
+- git commit —-amend —-no-edit은 마지막 커밋의 메시지를 수정하지 않고, 현재 변경사항들을 마지막 커밋에 추가한다.
+- 그래서 작업이 다 끝나고 메인 브랜치에 병합을 완료했다면, git branch -d 브랜치명을 통해  로컬저장소에서 브랜치 삭제해준다.
+- 그리고 로컬 저장소 뿐만 아니라 원격 저장소에도 git push origin :브랜치명을 통해 삭제해준다.
+
+#### Commit 내리기
+
+- git rm 폴더명 -r --cached를 통해 이미 staging area에 올린 폴더를 다시 unstage area로 내릴 수 있다. 
+- 폴더를 내리고 싶을 땐 -r을 붙여주면 되고, 이미 staging area에 올라갔다면 뒤에 --cached를 붙여줘야 한다.
+- git restore --staged와 비슷하다.
+
+#### Origin, Remote 
+
+- Origin은 원격 저장소를 의미하는 것으로 GitHub, GitLab, Bitbucket 저장소를 의미한다.
+- GitHub에서는 리포지토리를 만들면 기본적으로 origin으로 설정된다.
+- 원격 저장소를 더 추가하고 싶다면 git remote add 원격저장소명 원격저장소URL을 통해 추가적으로 원격 저장소를 연결할 수 있다.
+- 반대로 git remote remove 원격저장소명 원격저장소URL을 통해 현재 연결되어 있는 원격 저장소의 연결을 해제할 수 있다.
+- git remote add를 통해 github뿐만 아니라 gitlab, bitbucket등에도 원격 저장소를 연결해서 코드를 깃허브와 깃랩, 비트버킷 등에 올리고 관리할 수도 있다.
+
+#### Clone
+
+- git clone URL을 통해 원격 저장소의 리포지토리를 로컬에 가져올 수 있는데 URL뒤에 폴더명을 따로 지정해주면 해당 폴더에 가져올 수 있다.
+- 만약 회사에서 협업을 하거나 또는 다른 사람의 리포지토리에 기여를 하고 싶다면, 해당 리포지토리를 자신의 깃허브에 fork해온 후, 클론을 통해 자신의 로컬에 가져와서 작업을 한 후, 변경사항을 커밋, 푸시한다.
+- 푸시를 하게 되면 fork해온 리포지토리에 작업한 변경사항들이 올라가게 되는데, 해당 리포지토리에 변경사항을 Pull request를 통해 요청하게 되면, 해당 리포지토리에서 그 변경사항을 확인해서 반영하게 된다. 
+- 단, fork하지 않은 리포지토리를 클론하게 되면, 파일들을 로컬에 가져올 수는 있지만, 작업한 내용을 업로드해서 Pull request를 요청하지는 못한다.
+
+#### HEAD
+
+- git log를 통해 커밋 히스토리와 현재 HEAD가 가르키는 곳을 확인할 수 있다.
+- (HEAD -> main, origin/main): HEAD -> main은 현재 로컬에 올라간 커밋이고, HEAD -> origin/main은 깃허브 서버에 올라간 커밋이다.
+- HEAD가 main, origin/main을 가르키고, main과 origin/main이 같은 선상에 있기 때문에 현재 로컬에서 커밋한 것이 깃허브 서버에도 동일한 커밋을 가지고 있다는 의미이다.
+
+#### VSCode Git
+
+- VSCode에서 파란색 줄은 수정된 부분을 의미하고, 초록색 줄은 새로 추가된 부분을 의미한다.
+- M: modified(수정된 파일)
+- U: untracked(아직 깃에 의해 추적되지 않은 파일)
+- A: added(새로 추가된 파일)
+
+#### Git CLI
+
+- git log: 커밋 히스토리 확인
+- git status: 깃 상태 확인
+- git add 파일명: 하나의 변경된 파일을 staging area로 이동
+- git add .: 현재 폴더에 변경된 모든 파일들을 staging area로 이동
+- git restore --staged 파일명: 하나의 변경된 파일을 staging area에서 다시 unstage area로 이동
+- git restore --staged .: 변경된 모든 파일들을 staging area에서 다시 unstage area로 이동
+- git rm 폴더명 -r —cached: 이미 staging area에 올린 폴더를 다시 unstage area로 내리기
+- git commit -m "커밋 메세지": 커밋하기
+- git commit -am "커밋 메세지": git add와 git commit -m을 동시에 하기 (단, 파일을 처음 생성 후, 커밋하는 경우는 불가)
+- git push origin 브랜치명: 원격 저장소의 브랜치명으로 푸시 (새로 만든 브랜치명도 포함)
+- git push origin main -f: 원격 저장소의 main브랜치에 강제로 푸시
+- git push -u origin +main: 충돌을 무시하고 강제로 원격 저장소 main브랜치에 푸시
+- git checkout 커밋ID: 입력한 커밋ID에 해당하는 과거의 커밋 시점으로 돌아가기
+- git checkout main: 과거의 커밋에서 다시 main브랜치로 이동
+- git reset HEAD^: 커밋 기록만 삭제하고, 작업한 파일의 변경 사항은 그대로 유지하면서, working directory로 이동
+- git reset HEAD^ --hard : 커밋 기록과 작업한 파일의 변경 사항을 삭제하면서 과거의 커밋으로 돌아가기
+- git reset HEAD^ —-soft: 커밋 기록만 삭제하고, 작업한 파일의 변경 사항은 그대로 유지하면서 staging area로 이동
+- git branch: 전체 브랜치 확인
+- git branch 브랜지명: 브랜치 만들기
+- git checkout 브랜치명: 해당 브랜치로 이동
+- git switch -c 브랜치명: 새로운 브랜치를 생성 후, 이동 (=git checkout -b 브랜치명)
+- git checkout 커밋id -b 브랜치명: 과거 커밋으로 checkout 후, 새로운 브랜치 생성 후, 이동
+- git branch -d 브랜치명: 로컬 저장소에서 브랜치 삭제
+- git push origin :브랜치명: 원격 저장소에서 브랜치 삭제 (=git push origin -d 브랜치명)
+- git checkout -t 브랜치명: 원격 저장소에 있는 브랜치를 로컬로 가져오기
+- git remote -v: Remote 목록 확인
+- git remote add 원격저장소명 원격저장소URL: 원격 저장소 연결
+- git remote remove 원격저장소명 원격저장소URL: 원격 저장소 연결 제거
+- git remote rename 원격저장소명 바꿀 원격저장소명: 원격 저장소 이름 변경
+- git clone URL: 원격 저장소의 리포지토리를 로컬에 복사
+- git clone URL 폴더명: 원격 저장소의 리포지토리를 로컬에 지정한 폴더에 복사
