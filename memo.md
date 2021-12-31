@@ -37,6 +37,7 @@
 - git directory에는 언제, 누가, 어떤 것을 수정했는지에 대한 히스토리를 가지고 있는 곳이다.
 - git direcotry에서 git push를 하게 되면 remote repository인 원격 저장소로 올라가게 된다.
 - git pull을 하게 되면 remote repository인 원격 저장소에서 local repository인 로컬 저장소로 받아오게 된다.
+- ![](https://www.gyanblog.com/static/5a95f868558c38cd23ec6168393674b8/0a47e/git_lifecycle_2.png)
 
 ## Branch
 
@@ -45,6 +46,7 @@
 - 그래서 그 후 새로운 변경사항이 생기게 되면 그 변경사항을 메인 브랜치에 merge를 통해 합칠 수 있게 된다.
 - 또는 메인 브랜치에 변경사항이 생기면 Update를 통해 메인 브랜치의 변경사항을 가져와서 업데이트할 수 있다.
 - 그리고 기능 개발이 끝났다면 나중에 해당 브랜치를 메인 브랜치에 merge하고, 삭제할 수 있다.
+- ![](https://www.nobledesktop.com/image/gitresources/git-branches-merge.png)
 
 ## Conflit
 
@@ -62,10 +64,37 @@
 
 ## Upstream Branch
 
-- Upstream Branch는 포크해온 메인 리포지토리의 메인 브랜치와 연결되어 있는 브랜치이다.
-- 우리가 메인 리포지토리에서 포크를 해와서 작업을 할 때, 만약 메인 리포지토리의 코드가 업데이트되어서, 포크해와서 작업중인 코드가 오래된 경우, upstream 브랜치를 통해 메인 리포지토리의 최신 코드를 현재 리포지토리로 가져올 수 있다.
+- Upstream Branch는 fork해온 베이스 저장소의 마스터 브랜치와 연결되어 있는 브랜치이다.
+- 우리가 메인 리포지토리에서 포크를 해온 후 작업을 할 때, 만약 메인 리포지토리의 코드가 업데이트 되어서 포크해서 작업중인 코드가 오래된 경우, upstream 브랜치를 통해 메인 리포지토리의 최신 코드를 현재 리포지토리로 fetch해올 수 있다.
 - 메인 리포지토리의 메인 브랜치를 fork하게 되면 기본적으로 그 메인 리포지토리의 메인 브랜치와 연결되어있는 upstream 브랜치가 만들어지고, 이 브랜치를 통해 메인 리포지토리의 변경사항을 fetch해서 가져올 수 있다.
 - Github Desktop에서 fetch origin을 클릭해서 upstream 브랜치에 최신 코드를 fetch해서 가져온 후, upstream 브랜치의 코드를 현재 브랜치에 병합한다.
+
+## 오픈 소스 프로젝트에서 협업하는 방법
+
+- 오픈 소스 프로젝트나 팀에서 협업하는 전체적인 과정에 대해 정리했다.
+- 1. 깃허브 리포지토리에서 fork해온다.
+- 2. 리포지토리를 local에 clone해온다.
+  - `git clone https://github.com/user/repo.git`
+- 3. 베이스 저장소를 가르키는 upstream이라는 remote를 추가한다.
+  - `git remote add upstream https://github.com/user/repo.git`
+- 4. 새로운 new_feature라는 브랜치를 생성 후, 해당 브랜치로 이동한다.
+  - `git checkout -b new_feature`
+- 5. new_feature브랜치에서 기능 개발을 한다.
+- 6. remote(베이스 저장소)로부터 새로운 변경사항을 pull해온다.
+  - `git checkout master`를 통해 master브랜치로 이동한다.
+  - `git pull upstream master`를 통해 upstream의 master브랜치로부터 변경사항을 pull해온다.
+  - `git checkout new_feature`를 통해 기능 개발중인 new_feature브랜치로 이동한다.
+  - `git merge master`를 통해 master브랜치로부터 merge한다.
+  - `git push origin new_feature`를 통해 원격 저장소에 변경 사항을 푸시한다.
+- 7. pull request를 통해 변경 사항을 upstream 리포지토리(베이스 저장소)에 병합한다.
+- 8. pull request가 수락되면, 변경 사항을 origin(포크된 리포지토리)으로 가져온다.
+  - `git checkout master`를 통해 master브랜치로 이동한다.
+  - `git pull upstream master`를 통해 upstream의 master브랜치로부터 변경사항을 pull해온다.
+- 9. 로컬과 깃허브에 존재하는 new_feature브랜치를 삭제한다.
+  - `git branch -d new_feature`를 통해 로컬에서 new_feature브랜치 삭제
+  - `git push origin --delete new_feature`를 통해 로컬에서 new_feature브랜치를 삭제한 내용을 푸시한다.
+- https://www.tomasbeuzen.com/post/git-fork-branch-pull
+- ![](https://www.tomasbeuzen.com/post/git-fork-branch-pull/featured_hud478d74d48d19bfd1c1c03fc398c8033_312322_720x0_resize_lanczos_3.png)
 
 ## Issue
 
